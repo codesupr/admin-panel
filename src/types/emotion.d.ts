@@ -1,4 +1,4 @@
-import { TextVariants } from '../theme/typography';
+import { TextVariants } from 'theme/typography';
 
 declare module '@emotion/react' {
   interface TextVariantsStyle {

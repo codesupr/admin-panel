@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextVariants } from '../../theme/typography';
+import { TextVariants } from 'theme/typography';
 import styled from '@emotion/styled';
 
 type VariantType = keyof typeof TextVariants;
