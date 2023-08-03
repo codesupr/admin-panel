@@ -10,6 +10,12 @@
       ],
       "types/*": [
         "src/types/*"
+      ],
+      "data/*": [
+        "src/data/*"
+      ],
+      "helpers/*": [
+        "src/helpers/*"
       ]
     },
     "target": "ES2020",

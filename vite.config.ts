@@ -9,6 +9,8 @@ export default defineConfig({
       { find: 'components', replacement: '/src/components' },
       { find: 'theme', replacement: '/src/theme' },
       { find: 'types', replacement: '/src/types' },
+      { find: 'data', replacement: '/src/data' },
+      { find: 'helpers', replacement: '/src/helpers' },
     ],
   },
 });
