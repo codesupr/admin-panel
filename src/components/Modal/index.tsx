@@ -38,7 +38,7 @@ const Modal = ({ isOpen, children, onClose, outsideClickClosesModal = true }: Mo
       document.body.removeEventListener('keydown', closeOnEscape);
     };
   }, [onClose]);
-  console.log('custom modal');
+
   return (
     <ReactPortal wrapperId='app-modal'>
       {isOpen && (

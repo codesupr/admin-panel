@@ -1,5 +1,4 @@
 import Modal from 'components/Modal';
-import ModalV2 from 'components/Modal/ModalV2';
 import { TryLogin, tryLogin } from 'data/cred';
 import React from 'react';
 
@@ -8,7 +7,6 @@ const Login = () => {
   const [data, setData] = React.useState<TryLogin | null>(null);
   const [loading, setLoading] = React.useState(false);
   const [openModal, toggleLoginModal] = React.useState(false);
-  const [openNewModal, toggleNewModal] = React.useState(false);
 
   const handleClose = () => {
     toggleLoginModal(false);
@@ -16,19 +14,6 @@ const Login = () => {
 
   const handleLogin = async () => {
     toggleLoginModal(true);
-    try {
-      setLoading(true);
-      const data = await tryLogin(loginState);
-      setData(data);
-    } catch (e) {
-      setData(e as TryLogin);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const toggleModal = async () => {
-    toggleNewModal(true);
     try {
       setLoading(true);
       const data = await tryLogin(loginState);
@@ -60,11 +45,6 @@ const Login = () => {
         <button type='button' onClick={handleLogin}>
           Login
         </button>
-        <div>
-          <button type='button' onClick={toggleModal}>
-            New login
-          </button>
-        </div>
       </form>
       <Modal isOpen={openModal} onClose={handleClose}>
         {loading ? (
@@ -76,16 +56,6 @@ const Login = () => {
           </div>
         )}
       </Modal>
-      <ModalV2 isOpen={openNewModal} onClose={() => toggleNewModal(false)}>
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <div>
-            <h3>{data?.status}</h3>
-            <p>{data?.message}</p>
-          </div>
-        )}
-      </ModalV2>
     </section>
   );
 };

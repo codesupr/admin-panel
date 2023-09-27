@@ -1,12 +1,19 @@
-import { TextField } from 'components/common/TextField';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './routes/Login';
+import TodoList from './routes/TodoList';
+import Todo from './routes/Todo';
+import DndKitDemo from './routes/DndKitDemo';
 
 function App() {
   return (
     <main>
-      <TextField variant='P1'>Example login</TextField>
-      <Login />
+      <Router>
+        <Routes>
+          <Route path='/' element={<DndKitDemo />} />
+          <Route path='/todos' element={<TodoList />} />
+          <Route path='/todos/:id' element={<Todo />} />
+        </Routes>
+      </Router>
     </main>
   );
 }
